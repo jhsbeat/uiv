@@ -127,10 +127,10 @@
       value (value) {
         if (isString(value)) {
           // direct
-          this.inputEl.value = value
+          // this.inputEl.value = value
         } else if (value) {
           // is object
-          this.inputEl.value = this.itemKey ? value[this.itemKey] : value
+          // this.inputEl.value = this.itemKey ? value[this.itemKey] : value
         } else if (value === null) {
           // is null or undefined or something else not valid
           this.inputEl.value = ''

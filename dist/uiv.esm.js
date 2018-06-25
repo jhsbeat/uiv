@@ -3064,10 +3064,10 @@ var Typeahead = { render: function render() {
     value: function value(_value) {
       if (isString(_value)) {
         // direct
-        this.inputEl.value = _value;
+        // this.inputEl.value = value
       } else if (_value) {
         // is object
-        this.inputEl.value = this.itemKey ? _value[this.itemKey] : _value;
+        // this.inputEl.value = this.itemKey ? value[this.itemKey] : value
       } else if (_value === null) {
         // is null or undefined or something else not valid
         this.inputEl.value = '';
