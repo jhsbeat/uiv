@@ -127,12 +127,15 @@
       value (value) {
         if (isString(value)) {
           // direct
-          // this.inputEl.value = value
+          console.log('direct:', value)
+          this.inputEl.value = value
         } else if (value) {
           // is object
-          // this.inputEl.value = this.itemKey ? value[this.itemKey] : value
+          console.log('object:', value)
+          this.inputEl.value = this.itemKey ? value[this.itemKey] : value
         } else if (value === null) {
           // is null or undefined or something else not valid
+          console.log('null:', value)
           this.inputEl.value = ''
         }
       }
@@ -254,8 +257,12 @@
         }
       },
       inputKeyPressed (event) {
+        console.log('event.keyCode : ', event.keyCode)
+        event = (event) || window.event
+        var keyCode = (event.which) ? event.which : event.keyCode
+        console.log('event.keyCode : ', keyCode)
         if (this.open) {
-          switch (event.keyCode) {
+          switch (keyCode) {
             case 13:
               if (this.activeIndex >= 0) {
                 this.selectItem(this.items[this.activeIndex])
@@ -273,6 +280,8 @@
               let maxIndex = this.items.length - 1
               this.activeIndex = this.activeIndex < maxIndex ? this.activeIndex + 1 : maxIndex
               break
+            default:
+              return true
           }
         }
       },

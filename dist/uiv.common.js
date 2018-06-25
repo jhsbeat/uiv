@@ -3070,12 +3070,15 @@ var Typeahead = { render: function render() {
     value: function value(_value) {
       if (isString(_value)) {
         // direct
-        // this.inputEl.value = value
+        console.log('direct:', _value);
+        this.inputEl.value = _value;
       } else if (_value) {
         // is object
-        // this.inputEl.value = this.itemKey ? value[this.itemKey] : value
+        console.log('object:', _value);
+        this.inputEl.value = this.itemKey ? _value[this.itemKey] : _value;
       } else if (_value === null) {
         // is null or undefined or something else not valid
+        console.log('null:', _value);
         this.inputEl.value = '';
       }
     }
@@ -3204,8 +3207,12 @@ var Typeahead = { render: function render() {
       }
     },
     inputKeyPressed: function inputKeyPressed(event) {
+      console.log('event.keyCode : ', event.keyCode);
+      event = event || window.event;
+      var keyCode = event.which ? event.which : event.keyCode;
+      console.log('event.keyCode : ', keyCode);
       if (this.open) {
-        switch (event.keyCode) {
+        switch (keyCode) {
           case 13:
             if (this.activeIndex >= 0) {
               this.selectItem(this.items[this.activeIndex]);
@@ -3223,6 +3230,8 @@ var Typeahead = { render: function render() {
             var maxIndex = this.items.length - 1;
             this.activeIndex = this.activeIndex < maxIndex ? this.activeIndex + 1 : maxIndex;
             break;
+          default:
+            return true;
         }
       }
     },
