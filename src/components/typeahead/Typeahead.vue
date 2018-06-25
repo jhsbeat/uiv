@@ -156,7 +156,7 @@
           on(this.inputEl, EVENTS.FOCUS, this.inputFocused)
           on(this.inputEl, EVENTS.BLUR, this.inputBlured)
           on(this.inputEl, EVENTS.INPUT, this.inputChanged)
-          on(this.inputEl, EVENTS.KEY_DOWN, this.inputKeyPressed)
+          on(this.inputEl, EVENTS.KEY_PRESS, this.inputKeyPressed)
         }
       },
       removeListeners () {
@@ -165,7 +165,7 @@
           off(this.inputEl, EVENTS.FOCUS, this.inputFocused)
           off(this.inputEl, EVENTS.BLUR, this.inputBlured)
           off(this.inputEl, EVENTS.INPUT, this.inputChanged)
-          off(this.inputEl, EVENTS.KEY_DOWN, this.inputKeyPressed)
+          off(this.inputEl, EVENTS.KEY_PRESS, this.inputKeyPressed)
         }
       },
       prepareItems (data, disableFilters = false) {
